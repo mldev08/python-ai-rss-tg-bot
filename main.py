@@ -77,7 +77,6 @@ def save_post_record(text):
     record = {'text': text, 'timestamp': now}
     sent_posts.append(record)
 
-    # Удаляем устаревшие записи
     cutoff = now - timedelta(hours=MAX_HISTORY_HOURS)
     fresh_posts = [p for p in sent_posts if p['timestamp'] > cutoff]
     sent_posts.clear()
